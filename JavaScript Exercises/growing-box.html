@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Example -- Moving box</title>
+  <style>
+    #my-box {
+      background-color: lightgray;
+      border: 3px solid red;
+      width: 100px;
+      height: 100px;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="start-button">Start</button>
+  <button id="stop-button">Stop</button>
+  <div id="my-box"></div>
+
+  <script>
+
+     // Initial width and height values stored in variables
+    const myBox = document.querySelector('.my-box');
+    let WIDTH = 100;
+    let HEIGHT = 100;
+
+    // Set a 200 milliseconds interval to call grow function repeatedly
+    const myTimer = setInterval(grow, 200);
+
+    function grow() {
+      // +5 is the growth amount
+      WIDTH += 5;
+      HEIGHT += 5;
+      myBox.style.width = WIDTH + 'px';
+      myBox.style.height = HEIGHT + 'px';
+
+      // when the width reaches 300, stop growing the box
+      if (WIDTH > 300) {
+        clearInterval(myTimer);
+      }
+    }
+
+
+  </script>
+
+</body>
+</html>
